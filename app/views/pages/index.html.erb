@@ -1,0 +1,20 @@
+<p class="well">
+  <a href="#/">Start</a> | <a href="#/articles">Shop</a>
+</p>
+
+  <div ng-controller="CartCtrl">
+    <div ng-hide="cart.getItems().length" class="alert alert-warning">Ihr Warenkorb ist noch leer.</div>
+    <table ng-show="cart.getItems().length" class="table">
+      <tr ng-repeat="item in cart.getItems() track by $index" class="cart-item">
+        <td>{{item.name}}</td>
+        <td><price value="item.price"></td>
+      </tr>
+      <tr>
+        <td>{{cart.getItems().length}} Artikel</td>
+        <td><price value="cart.sum()"></td>
+        <td></td>
+      </tr>
+    </table>
+  </div>
+
+<div ng-view></div>

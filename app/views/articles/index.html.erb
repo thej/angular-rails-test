@@ -1,0 +1,36 @@
+<div class="container">
+
+  <div ng-controller="ArticlesCtrl">
+
+    <h1>AngularTest</h1>
+
+
+    Search: <input type="text" ng-model="search">
+
+    <p ng-show="search">Your searching for {{search}}</p>
+
+    <table class="table">
+      <tr ng-repeat="article in articles | filter:search">
+        <td>{{article.name}}</td>
+        <td><price value="article.price"></td>
+        <td><a href class="btn btn.default btn-sm" ng-click="deleteArticle(article.id);">Delete</a></td>
+        <td><a href class="btn btn.default btn-sm" ng-click="cart.addItem(article);">Add to Cart</a></td>
+      </tr>
+    </table>
+
+    <hr>
+
+    <h3>Add Article</h3>
+    <form ng-submit="create()">
+      <label for="name">Name</label><br>
+      <input type="text" name="name" id="name" ng-model="newArticle.name"><br>
+      <p>{{newArticle.name | titleize}}</p>
+
+      <label for="price">Price</label><br>
+      <input type="text" name="price" id="price" ng-model="newArticle.price"><br>
+
+      <input type="submit" class="btn">
+    </form>
+
+  </div>
+</div>
